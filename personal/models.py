@@ -46,7 +46,8 @@ class Image(models.Model):
   landImage = CloudinaryField('landImage', default='')
   tallImage = CloudinaryField('tallImage', default='')
 
-  category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
+  category = models.ForeignKey(
+    Category, null=True, blank=True, on_delete=models.CASCADE)
 
   #utility variable
   uniqueId = models.CharField(null=True, blank=True, max_length=100)
@@ -60,16 +61,16 @@ class Image(models.Model):
   def get_absolute_url(self):
     return reverse('image-detail', kwargs={'slug': self.slug})
 
-  # def save(self, *args, **kwargs):
-  #   if self.date_created is None:
-  #     self.date_created = timezone.localtime(timezone.now())
-  #   if self.uniqueId is None:
-  #     self.uniqueId = str(uuid4()).split('-')[4]
-  #     self.slug = slugify('{} {}'.format(self.category.title, self.uniqueId))
+  def save(self, *args, **kwargs):
+    if self.date_created is None:
+      self.date_created = timezone.localtime(timezone.now())
+    if self.uniqueId is None:
+      self.uniqueId = str(uuid4()).split('-')[4]
+      self.slug = slugify('{} {}'.format(self.category.title, self.uniqueId))
 
-  #   self.slug = slugify('{} {}'.format(self.category.title, self.uniqueId))
-  #   self.last_updated = timezone.localtime(timezone.now())
-  #   super(Image, self).save(*args, **kwargs)
+    self.slug = slugify('{} {}'.format(self.category.title, self.uniqueId))
+    self.last_updated = timezone.localtime(timezone.now())
+    super(Image, self).save(*args, **kwargs)
 
   def upgrade(self):
     self.delete()
