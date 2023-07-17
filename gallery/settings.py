@@ -15,6 +15,7 @@ import os
 # import django_heroku
 import dj_database_url
 from decouple import config,Csv
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -171,6 +172,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # configuring the location for media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+cloudinary.config(
+    cloud_name=config('cloud_name'),
+    api_key=config('api_key'),
+    api_secret=config('api_secret')
+
+)
 
 # Configure Django App for Heroku.
 # django_heroku.settings(locals())
