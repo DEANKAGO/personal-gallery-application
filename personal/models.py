@@ -42,9 +42,11 @@ class Image(models.Model):
   description = models.TextField(null=True, blank=True)
   text = models.TextField(null=True, blank=True)
 
-  squareImage = CloudinaryField('squareImage', default='')
-  landImage = CloudinaryField('landImage', default='')
-  tallImage = CloudinaryField('tallImage', default='')
+  squareImage = CloudinaryField('squareImage', default='').build_url(width=1000, height=1000, crop="fill")
+  landImage = CloudinaryField('landImage', default='').build_url(
+        width=2878, height=1618, crop="fill")
+  tallImage = CloudinaryField('tallImage', default='').build_url(
+        width=1618, height=2878, crop="fill")
 
   category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
 
