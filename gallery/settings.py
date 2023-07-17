@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 # import django_heroku
 import dj_database_url
-from decouple import config,Csv
+from decouple import config
 import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -170,8 +170,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # configuring the location for media
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 cloudinary.config(
     cloud_name=config('cloud_name'),

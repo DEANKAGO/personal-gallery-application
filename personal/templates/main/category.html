@@ -1,21 +1,22 @@
 {% load static %}
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="generator" content="">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="generator" content="" />
+
     <title>DeanKa Images</title>
 
-    <link rel="canonical" href="">
+    <link rel="canonical" href="" />
 
 
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" />
 
     <style>
       .bd-placeholder-img {
@@ -58,11 +59,35 @@
   </div>
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
-      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center"
+      >
+        <svg 
+        xmlns="http://www.w3.org/2000/svg"
+        width="20" 
+        height="20" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        stroke-width="2" 
+        aria-hidden="true" 
+        class="me-2" 
+        viewBox="0 0 24 24"
+        >
+        <path
+         d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+         <circle cx="12" cy="13" r="4"/>
+        </svg>
         <strong>Home</strong>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarHeader" 
+      aria-controls="navbarHeader" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
@@ -94,10 +119,18 @@
             <img src="{{image.landImage.url}}" alt="{{image.text}}">
 
             <div class="card-body">
-              <p class="card-text">{{image.shortDescription}} . . . <a href="{% url 'image-details' slug1=category.slug slug2=image.slug %}">read more</a></p>
-              <div class="d-flex justify-content-between align-items-center">
+              <p class="card-text">
+                {{image.shortDescription}} . . . 
+                <a href="{% url 'image-details' slug1=category.slug slug2=image.slug %}">read more</a>
+              </p>
+              <div 
+              class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="{% url 'image-details' slug1=category.slug slug2=image.slug %}"><button type="button" class="btn btn-sm btn-outline-secondary">Image Details</button></a>
+                  <a href="{% url 'image-details' slug1=category.slug slug2=image.slug %}"><button 
+                    type="button" 
+                    class="btn btn-sm btn-outline-secondary">
+                    Image Details
+                  </button></a>
                   <button type="button" class="btn btn-sm btn-outline-secondary copy-btn" data-landImage.url="{{image.landImage.url}}">Copy Link</button>
                 </div>
                 <small class="text-muted">{{image.date_created|date}}</small>
