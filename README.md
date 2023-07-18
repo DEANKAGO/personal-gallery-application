@@ -4,7 +4,7 @@
  </p>
 ##### By Martin Kago
 
-### personal-gallery-application link : https://deanka.herokuapp.com/
+### personal-gallery-application link : https://personal-gallery.up.railway.app/
 
 ## Table of Content
 
